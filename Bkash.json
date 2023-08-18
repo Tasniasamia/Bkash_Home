@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "সেন্ড মানি",
+        "image": "https://i.ibb.co/3dj98NH/Screenshot-9-removebg-preview.png"
+    },
+    {
+        "id": 2,
+        "name": "মোবাইল রিচার্জ",
+        "image": "https://i.ibb.co/Jcvz1SP/Screenshot-1-removebg-preview.png"
+    },
+    {
+        "id": 3,
+        "name": "ক্যাশ আউট",
+        "image": "https://i.ibb.co/0yJWgX0/Screenshot-2-removebg-preview.png"
+    },
+    {
+        "id": 4,
+        "name": "পেমেন্ট",
+        "image": "https://i.ibb.co/vLy5JDq/Screenshot-3-removebg-preview.png"
+    },
+    {
+        "id": 5,
+        "name": "অ্যাড মানি",
+        "image": "https://i.ibb.co/pPZ6vTK/Screenshot-4-removebg-preview.png"
+    },
+    {
+        "id": 6,
+        "name": "পে-বিল",
+        "image": "https://i.ibb.co/vh0QXNM/Screenshot-5-removebg-preview.png"
+    },
+    {
+        "id": 7,
+        "name": "সেভিংস",
+        "image": "https://i.ibb.co/0QwVGmz/Screenshot-6-removebg-preview.png"
+    },
+    {
+        "id": 8,
+        "name": "লোন",
+        "image": "https://i.ibb.co/Wpd3pMn/Screenshot-7-removebg-preview-1.png"
+    },
+    {
+        "id": 9,
+        "name": "বিকাশ টু ব্যাংক",
+        "image": "https://i.ibb.co/Hgc8QV1/Screenshot-8-removebg-preview.png"
+    },
+    {
+        "id": 10,
+        "name": "রেমিট্যান্স",
+        "image": "https://i.ibb.co/YRVm2pt/Screenshot-10-removebg-preview.png"
+    },
+    {
+        "id": 11,
+        "name": "এডুকেশন ফি",
+        "image": "https://i.ibb.co/CQCjYGM/Screenshot-11-removebg-preview.png"
+    },
+    {
+        "id": 12,
+        "name": "মাইক্রোফিনান্স",
+        "image": "https://i.ibb.co/kmzD3QF/Screenshot-12-removebg-preview.png"
+    },
+    {
+        "id": 13,
+        "name": "বিনিময়",
+        "image": "https://i.ibb.co/YdKRv8J/Screenshot-13-removebg-preview.png"
+    },
+    {
+        "id": 14,
+        "name": "বাংলা QR",
+        "image": "https://i.ibb.co/W0qQCNY/Screenshot-14-removebg-preview.png"
+    }
+]
