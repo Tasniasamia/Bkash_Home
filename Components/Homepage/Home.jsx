@@ -89,14 +89,9 @@ const Bkash_Options=[
 
         },
         main_container: {
-            width: 360,
            
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 5,
-            borderWidth: 1,
-            borderColor: '#ccc',
-            borderRadius: 10,
+           
+           paddingVertical:10,
   
           },
         image: {
@@ -165,7 +160,7 @@ const Bkash_Options=[
 
        </View>
 
-       <SafeAreaView >
+       <SafeAreaView style={styles.main_container}>
        <FlatList
   keyExtractor={(item) => item.id}
   numColumns={4}
@@ -173,9 +168,9 @@ const Bkash_Options=[
  
   renderItem={({ item }) => (
     <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-      <Image source={{ uri: item.image }} style={{ width: 80, height: 60}} />
+      <Image source={{ uri: item.image }} style={{ width: 70, height: 60,marginBottom:5}} />
       {/* You can also add the name if needed */}
-      <Text>{item.name}</Text>
+      <Text style={{fontSize:10}}>{item.name}</Text>
     </View>
   )}
 />
