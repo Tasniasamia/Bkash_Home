@@ -158,10 +158,11 @@ const Bkash_Options=[
        <FlatList
   keyExtractor={(item) => item.id}
   numColumns={4}
-  data={Bkash_Options}
+  data={Bkash_Options}  
+  
   renderItem={({ item }) => (
-    <View>
-      <Image source={{ uri: item.image }} style={{ width: 70, height: 70 }} />
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center"}}>
+      <Image source={{ uri: item.image }} style={{ width: 60, height: 60}} />
       {/* You can also add the name if needed */}
       <Text style={{textAlign:"center"}}>{item.name}</Text>
     </View>
