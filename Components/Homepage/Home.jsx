@@ -428,7 +428,34 @@ const images=[
 <TouchableOpacity style={{borderColor:"#e11471",borderWidth:1,borderRadius:5,backgroundColor:"white",width:120,padding:10,marginTop:15}}>
     <Text style={{color:"#e11471",textAlign:"center"}}>বিস্তারিত দেখুন</Text></TouchableOpacity></View>
 </View>   
-        
+
+{/* BottomNavigation */}
+<View style={{backgroundColor:"#fefefe",height:90, 
+        marginTop:30,flexDirection:"row",paddingHorizontal:8,justifyContent:"space-between",alignItems:"center", shadowColor: 'pink',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 6,borderWidth:1,borderColor:"whitesmoke"}}>
+    <View style={{flexDirection:"column"}}>
+        <Ionicons name="home-sharp"style={{textAlign:"center"}} size={30} color="#e11471"/>
+        <Text style={{marginTop:6,color:"#e11471"}}>হোম</Text>
+        </View>
+
+
+        <View style={{flexDirection:"column",alignItems:"center"}}>
+            <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",backgroundColor:"white",borderRadius:50,height:80,width:80,borderWidth:5,transform: [{translateY: (0,-20)}]}}>
+        <Ionicons name="qr-code-outline"style={{textAlign:"center"}} size={30} color="#e11471"/></View>
+        <Text >QR স্ক্যান</Text>
+        </View>
+
+
+
+        <View style={{flexDirection:"column"}}>
+        <Ionicons name="mail-sharp"style={{textAlign:"center"}} size={30} color="#9b9b9b"/>
+        <Text style={{marginTop:6}}>মেসেজ</Text>
+        </View>
+
+</View>
+
         </ScrollView>
     );
 };
