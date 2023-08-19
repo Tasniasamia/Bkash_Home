@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {View,SafeAreaView,Text, Button, StyleSheet,TouchableOpacity, Image, FlatList, ScrollView} from 'react-native';
 import {Ionicons } from '@expo/vector-icons';
-import Swiper from 'react-native-swiper';
-import ImageSlider from 'react-native-image-slider-box';
+import { SliderBox } from "react-native-image-slider-box";
 
 // import [ Bkash_Options ] from "../Bkash.js"
 const Home =() => {
@@ -81,20 +80,44 @@ const Bkash_Options=[
         name:"বাংলা QR",
         image:"https://i.ibb.co/W0qQCNY/Screenshot-14-removebg-preview.png"
     }
-]       
-const images=[{
-    
-    image:"https://i.ibb.co/nbT2t4T/Screenshot-12.png"
-},
-{
-    image:"https://i.ibb.co/kMct6Tt/Screenshot-13.png"
+] ;
+const Others_service=[{
+id:"1",
+image:"https://i.ibb.co/q0Skp8v/Screenshot-19-removebg-preview.png",
+name:"টিকেট"
 },{
-    image:"https://i.ibb.co/G2NPfCn/Screenshot-14.png"
+id:"2",
+image:"https://i.ibb.co/FsSGn1B/Screenshot-20-removebg-preview.png",
+name:"জিপি ফ্লেক্সিপান"
 },{
-    image:"https://i.ibb.co/kMct6Tt/Screenshot-13.png"
+    id:"3",
+    image:"https://i.ibb.co/y6J15D0/Screenshot-21-removebg-preview.png",
+    name:"ডোনেশন",
 },{
-    image:"https://i.ibb.co/Mn394fg/Screenshot-16.png"
+    id:"4",
+    image:"https://i.ibb.co/Hgc8QV1/Screenshot-8-removebg-preview.png",
+    name:"ইন্সুরেন্স"
+},{
+    id:"5",
+    image:"https://i.ibb.co/2FBgLyC/Screenshot-23-removebg-preview.png",
+    name:"গেমস"
+},{
+    id:"6",
+    image:"https://i.ibb.co/Y3YBkQb/Screenshot-24-removebg-preview.png",
+    name:"ট্রাভেল"
+},{
+    id:"7",
+    image:"https://i.ibb.co/WcnNCTJ/Screenshot-25-removebg-preview.png",
+    name:"শপিং"
 }
+]      
+const images=[
+    require('../../assets/Screenshot_12.png'),
+    require('../../assets/Screenshot_13.png'),
+    require('../../assets/Screenshot_14.png'),
+    require('../../assets/Screenshot_16.png'),
+    require('../../assets/Screenshot_17.png')
+  
 ]   
     const styles = StyleSheet.create({
         container: {
@@ -112,8 +135,8 @@ const images=[{
         },
         gridItem: {
             width: '25%', // Each item occupies 25% of the container width for 4 columns
-            justifyContent: 'center',
-            alignItems: 'center',
+            // justifyContent: 'center',
+            // alignItems: 'center',
             marginBottom: 10,
           },
         main_container: {
@@ -157,23 +180,25 @@ const images=[{
 
 
         },
-        wrapper: {
-            width:100
-        },
-        slide: {
-            flex:1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-        image: {
-          width: 100,
-          height: 100,
-        },
+
+       banner_image_container: {
+            flex: 1, // Take up the entire available space
+            // justifyContent: 'center',
+          height:200,
+          marginHorizontal:8,
+          
+          },
+          banner_image: {
+            flex: 1, // Take up the entire available space within the container
+            width: '100%', // Ensure the width spans the full container width
+            height: '100%', // Ensure the height spans the full container height
+          },
+      
     })
     return (
-        <ScrollView >
+        <ScrollView>
             {/* Header */}
-            <SafeAreaView>
+            
             <SafeAreaView style={styles.container}>
        <View  style={{flexDirection:"row",alignItems:"center",gap:2,justifyContent:"space-between"}}>
         <View style={{flexDirection:"row",alignItems:"center",gap:2}}>
@@ -202,11 +227,10 @@ const images=[{
        </View>
 
        </SafeAreaView>
-   </SafeAreaView>
+   
  
        {/* All Options */}
-       <SafeAreaView>
-       <SafeAreaView style={styles. main_container}>
+       <View style={styles. main_container}>
       {
          Bkash_Options.map(item=> <Text style={styles.gridItem} key={item.id}>  <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}} >
          <Image source={{ uri: item.image }} style={{ width: 70, height: 60,marginBottom:5}} />
@@ -214,15 +238,14 @@ const images=[{
          <Text style={{fontSize:10}}>{item.name}</Text>
        </View></Text>)
       }
-       </SafeAreaView>
-       </SafeAreaView>
+       </View>
          {/* My_Options */}
-<SafeAreaView>
-       <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8}}>
+
+       <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10}}>
         <Text style={{fontSize:15}}>আমার বিকাশ</Text>
         <Text style={{color:"#e11471",fontSize:15}}>সব দেখুন</Text>
        </View >
-      <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",gap:2,borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,paddingVertical:5,marginHorizontal:8,borderTopWidth:0}}>
+       <View style={{borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,marginHorizontal:8,borderTopWidth:0,marginVertical:15}}>
        <ScrollView horizontal={true} >
       
      
@@ -254,23 +277,25 @@ const images=[{
       <Text style={{fontSize:10}}>Saved Bills</Text>
     </View>
        </ScrollView>
-       </View>
-       </SafeAreaView>
+   </View>
+
 
        {/* SLider */}
 
-    <View>
-    <ImageSlider images={images} />
-
-    </View>
+ <View style={{marginHorizontal:10,borderRadius:5,marginVertical:20}}>
+   
+    <SliderBox images={images} dorcolor="#e11471" inactiveDotColor="white" dotStyle={{height:12,width:12,borderRadius:50}}
+    imageLoadingColor="#e11471" autoplay={true}  circleLoop={true} sliderBoxHeight={130} style={{borderRadius:5}}
+/>
+ </View>
    {/* Antother-options */}
-   <SafeAreaView>
-   <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8,marginVertical:10}}>
+  
+   <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8}}>
         <Text style={{fontSize:15}}>সাজেশন</Text>
         <Text style={{color:"#e11471",fontSize:15}}>সব দেখুন</Text>
        </View >
-      <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",gap:2,borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,paddingVertical:5,marginHorizontal:8,borderTopWidth:0}}>
-       <ScrollView horizontal={true} >
+       <View style={{borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,marginHorizontal:8,borderTopWidth:0,marginVertical:15}}>
+       <ScrollView horizontal={true}  >
       
      
       
@@ -301,9 +326,77 @@ const images=[{
       <Text style={{fontSize:10}}>Saved Bills</Text>
     </View>
        </ScrollView>
-       </View>
-       </SafeAreaView>
+    </View>
+     {/* Offer */}
+     <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8}}>
+        <Text style={{fontSize:15}}>অফার</Text>
+        <Text style={{color:"#e11471",fontSize:15}}>সব দেখুন</Text>
+       </View >
+       
+   <View style={{borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,marginHorizontal:8,borderTopWidth:0,marginVertical:15}}>
+       <ScrollView horizontal={true} >
+      <View style={{borderRadius:5,borderColor:"whitesmoke",borderWidth:2,marginBottom:10,marginHorizontal:10}}>
+<Image source={{uri:"https://adsofbd.com/wp-content/uploads/2018/10/Bkash.jpg"}} style={{height:110,width:150,marginBottom:5,borderTopLeftRadius:5,borderTopRightRadius:5}}/>
+     <View style={{padding:5}}><Text style={{fontSize:16,marginBottom:3}}>বিদ্যুৎ বিল পে</Text>
+     <Text >৳২০০ উপহার</Text></View>
+      </View>
+      <View style={{borderRadius:5,borderColor:"whitesmoke",borderWidth:2,marginBottom:10,marginRight: 10}}>
+<Image source={{uri:"https://feed.bdshop.com/wp-content/uploads/2018/03/BDShop_600x450-1280x720.jpg"}} style={{height:110,width:150,marginBottom:5,borderTopLeftRadius:5,borderTopRightRadius:5}}/>
+     <View style={{padding:5}}><Text style={{fontSize:16,marginBottom:3}}>৳৪০০ ক্যাশব্যাক</Text>
+     <Text >দারাজ</Text></View>
+      </View>
+    
+
+
+      <View style={{borderRadius:5,borderColor:"whitesmoke",borderWidth:2,marginBottom:10,marginRight: 10}}>
+<Image source={{uri:"https://images.deliveryhero.io/image/fd-bd/Products/7234061.png?width=%s"}} style={{height:110,width:150,marginBottom:5,borderTopLeftRadius:5,borderTopRightRadius:5}}/>
+     <View style={{padding:5}}><Text style={{fontSize:16,marginBottom:3}}>৳১০০ ক্যাশব্যাক</Text>
+     <Text >ওয়াফল টাইম</Text></View>
+      </View>
+
+
+
+      <View style={{borderRadius:5,borderColor:"whitesmoke",borderWidth:2,marginBottom:10,marginRight: 10}}>
+<Image source={{uri:"https://cosmosgroup.sgp1.cdn.digitaloceanspaces.com/news/7826803_New%20Project%20-%202022-01-04T182106.215.jpg"}} style={{height:110,width:150,marginBottom:5,borderTopLeftRadius:5,borderTopRightRadius:5}}/>
+     <View style={{padding:5}}><Text style={{fontSize:16,marginBottom:3}}>৳১০০ ক্যাশব্যাক</Text>
+     <Text >নর্থ এন্ড</Text></View>
+      </View>
+
+      <View style={{borderRadius:5,borderColor:"whitesmoke",borderWidth:2,marginBottom:10,marginRight: 10}}>
+<Image source={{uri:"https://i.ibb.co/0JmrgXp/Screenshot-18.png"}} style={{height:110,width:150,marginBottom:5,borderTopLeftRadius:5,borderTopRightRadius:5}}/>
+    
+     <Text style={{color:"#e11471",textAlign:"center"}}>সবগুলো অফার দেখুন</Text></View>
       
+      
+       </ScrollView>
+       </View>
+      
+      {/* Another-Services */}
+
+      <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8}}>
+        <Text style={{fontSize:15}}>অন্যান্য সেবাসমূহ</Text>
+       </View >
+       
+   <View style={{borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,marginHorizontal:8,borderTopWidth:0}}>
+   <View style={styles. main_container}>
+      {
+        Others_service.map(item=> <Text style={styles.gridItem} key={item.id}>  <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}} >
+         <Image source={{ uri: item.image }} style={{ width: 70, height: 60,marginBottom:5}} />
+         {/* You can also add the name if needed */}
+         <Text style={{fontSize:10}}>{item.name}</Text>
+       </View></Text>)
+      }
+       </View>
+       </View>
+
+       {/* banner */}
+       <View style={styles.banner_image_container}>
+  <Image
+    source={{ uri: "https://i.ibb.co/p2d08Q4/Screenshot-26.png" }}
+    style={styles.banner_image}
+    resizeMode="contain" // Change resizeMode as needed
+  />
+</View>
         </ScrollView>
     );
 };
