@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {View,SafeAreaView,Text, Button, StyleSheet,TouchableOpacity, Image, FlatList} from 'react-native';
+import {View,SafeAreaView,Text, Button, StyleSheet,TouchableOpacity, Image, FlatList, ScrollView} from 'react-native';
 import {Ionicons } from '@expo/vector-icons';
+import Swiper from 'react-native-swiper';
+import ImageSlider from 'react-native-image-slider-box';
+
 // import [ Bkash_Options ] from "../Bkash.js"
 const Home =() => {
 //    const [option,setOption]=useState([]);
@@ -78,20 +81,47 @@ const Bkash_Options=[
         name:"বাংলা QR",
         image:"https://i.ibb.co/W0qQCNY/Screenshot-14-removebg-preview.png"
     }
-]          
+]       
+const images=[{
+    
+    image:"https://i.ibb.co/nbT2t4T/Screenshot-12.png"
+},
+{
+    image:"https://i.ibb.co/kMct6Tt/Screenshot-13.png"
+},{
+    image:"https://i.ibb.co/G2NPfCn/Screenshot-14.png"
+},{
+    image:"https://i.ibb.co/kMct6Tt/Screenshot-13.png"
+},{
+    image:"https://i.ibb.co/Mn394fg/Screenshot-16.png"
+}
+]   
     const styles = StyleSheet.create({
         container: {
           paddingVertical:30,
           paddingHorizontal:10,
           backgroundColor:"#e11471",
           borderBottomLeftRadius:10,
-          borderBottomRightRadius:10
+          borderBottomRightRadius:10,
+          position:"relative",
+          top:0,
+          left:0,
+          right:0,
+          zIndex: 1,
 
         },
+        gridItem: {
+            width: '25%', // Each item occupies 25% of the container width for 4 columns
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 10,
+          },
         main_container: {
-           
-           
-           paddingVertical:10,
+            flex: 1,
+    flexDirection: 'row', // Horizontal layout
+    flexWrap: 'wrap', // Wrap to the next row when items don't fit
+     // Distribute items evenly
+    paddingHorizontal: 10,
   
           },
         image: {
@@ -126,12 +156,25 @@ const Bkash_Options=[
         paddingHorizontal:10,
 
 
-        }
+        },
+        wrapper: {
+            width:100
+        },
+        slide: {
+            flex:1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        image: {
+          width: 100,
+          height: 100,
+        },
     })
     return (
-        <SafeAreaView >
+        <ScrollView >
             {/* Header */}
-            <View style={styles.container}>
+            <SafeAreaView>
+            <SafeAreaView style={styles.container}>
        <View  style={{flexDirection:"row",alignItems:"center",gap:2,justifyContent:"space-between"}}>
         <View style={{flexDirection:"row",alignItems:"center",gap:2}}>
             <View><Image source={require("../../assets/avater2.png")} style={styles.image2}/></View>
@@ -158,24 +201,110 @@ const Bkash_Options=[
         </View>
        </View>
 
-       </View>
-
-       <SafeAreaView style={styles.main_container}>
-       <FlatList
-  keyExtractor={(item) => item.id}
-  numColumns={4}
-  data={Bkash_Options}  
- 
-  renderItem={({ item }) => (
-    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-      <Image source={{ uri: item.image }} style={{ width: 70, height: 60,marginBottom:5}} />
-      {/* You can also add the name if needed */}
-      <Text style={{fontSize:10}}>{item.name}</Text>
-    </View>
-  )}
-/>
        </SafeAreaView>
-        </SafeAreaView>
+   </SafeAreaView>
+ 
+       {/* All Options */}
+       <SafeAreaView>
+       <SafeAreaView style={styles. main_container}>
+      {
+         Bkash_Options.map(item=> <Text style={styles.gridItem} key={item.id}>  <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}} >
+         <Image source={{ uri: item.image }} style={{ width: 70, height: 60,marginBottom:5}} />
+         {/* You can also add the name if needed */}
+         <Text style={{fontSize:10}}>{item.name}</Text>
+       </View></Text>)
+      }
+       </SafeAreaView>
+       </SafeAreaView>
+         {/* My_Options */}
+<SafeAreaView>
+       <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8}}>
+        <Text style={{fontSize:15}}>আমার বিকাশ</Text>
+        <Text style={{color:"#e11471",fontSize:15}}>সব দেখুন</Text>
+       </View >
+      <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",gap:2,borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,paddingVertical:5,marginHorizontal:8,borderTopWidth:0}}>
+       <ScrollView horizontal={true} >
+      
+     
+      
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/Jcvz1SP/Screenshot-1-removebg-preview.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>01950123423</Text>
+    </View>
+ 
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/72JvXnj/Screenshot-9-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Priyo Numbers</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/DpVVZHT/Screenshot-10-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>জিপি মাই অফার</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/0yJWgX0/Screenshot-2-removebg-preview.png" }} style={{ width: 70, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Favourite Agents</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/10mWmnJ/Screenshot-11-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Saved Bills</Text>
+    </View>
+       </ScrollView>
+       </View>
+       </SafeAreaView>
+
+       {/* SLider */}
+
+    <View>
+    <ImageSlider images={images} />
+
+    </View>
+   {/* Antother-options */}
+   <SafeAreaView>
+   <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",borderWidth:2 ,borderColor:"whitesmoke",borderTopLeftRadius:5,borderTopRightRadius:5,padding:10,marginHorizontal:8,marginVertical:10}}>
+        <Text style={{fontSize:15}}>সাজেশন</Text>
+        <Text style={{color:"#e11471",fontSize:15}}>সব দেখুন</Text>
+       </View >
+      <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",gap:2,borderWidth:2 ,borderColor:"whitesmoke",borderBottomLeftRadius:5,borderBottomRightRadius:5,paddingVertical:5,marginHorizontal:8,borderTopWidth:0}}>
+       <ScrollView horizontal={true} >
+      
+     
+      
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/Jcvz1SP/Screenshot-1-removebg-preview.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>01950123423</Text>
+    </View>
+ 
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/72JvXnj/Screenshot-9-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Priyo Numbers</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/DpVVZHT/Screenshot-10-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>জিপি মাই অফার</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/0yJWgX0/Screenshot-2-removebg-preview.png" }} style={{ width: 70, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Favourite Agents</Text>
+    </View>
+    <View style={{ height:100,width:100,flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <Image source={{ uri: "https://i.ibb.co/10mWmnJ/Screenshot-11-removebg-preview-1.png" }} style={{ width: 60, height: 60,marginBottom:5}} />
+      {/* You can also add the name if needed */}
+      <Text style={{fontSize:10}}>Saved Bills</Text>
+    </View>
+       </ScrollView>
+       </View>
+       </SafeAreaView>
+      
+        </ScrollView>
     );
 };
 
