@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {View,SafeAreaView,Text, Button, StyleSheet,TouchableOpacity, Image, FlatList, ScrollView} from 'react-native';
 import {Ionicons } from '@expo/vector-icons';
 import { SliderBox } from "react-native-image-slider-box";
-
+import { Video } from 'expo-av';
 // import [ Bkash_Options ] from "../Bkash.js"
 const Home =() => {
 //    const [option,setOption]=useState([]);
@@ -193,8 +193,18 @@ const images=[
             width: '100%', // Ensure the width spans the full container width
             height: '100%', // Ensure the height spans the full container height
           },
+          video_container: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          },
+          video: {
+            width: 250,
+            height: 200,
+          },
       
     })
+
     return (
         <ScrollView>
             {/* Header */}
@@ -397,6 +407,28 @@ const images=[
     resizeMode="contain" // Change resizeMode as needed
   />
 </View>
+
+
+{/* Video */}
+<View style={{marginVertical:10,marginHorizontal:8,paddingVertical:20,borderWidth:2,borderColor:"whitesmoke",textAlign:"center"}}>
+<View style={styles.video_container}>
+      <Video
+        source={require('../../assets/bkash_video.mp4')} // Path to your local video file
+        style={styles.video}
+        resizeMode="contain"
+        shouldPlay={true} 
+        volume={0}// Autoplay the video
+        isLooping // Enable looping
+      />
+    </View>
+<Text style={{fontSize:16,color:"#e11471",textAlign:"center",marginTop:10,marginBottom:5,fontWeight:"bold"}}>জিতে নিন বাইক,টিভি,এসি</Text>
+<Text style={{fontSize:12,color:"#e11471",textAlign:"center"}}>সাথে মিনিটে মিনিটে ক্যাশব্যাক</Text>
+{/* <Button title="বিস্তারিত দেখুন"style={{borderColor:"#e11471",borderWidth:2,borderRadius:5,color:"#e11471",backgroundColor:"white"}}/> */}
+<View style={styles.video_container}>
+<TouchableOpacity style={{borderColor:"#e11471",borderWidth:1,borderRadius:5,backgroundColor:"white",width:120,padding:10,marginTop:15}}>
+    <Text style={{color:"#e11471",textAlign:"center"}}>বিস্তারিত দেখুন</Text></TouchableOpacity></View>
+</View>   
+        
         </ScrollView>
     );
 };

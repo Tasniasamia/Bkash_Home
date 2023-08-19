@@ -12,12 +12,14 @@
     "@ant-design/icons": "^5.2.5",
     "@expo/vector-icons": "^13.0.0",
     "expo": "~49.0.7",
+    "expo-av": "^13.4.1",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-native": "0.72.3",
     "react-native-image-slider-box": "^2.0.7",
     "react-native-swiper": "^1.6.0",
-    "react-native-vector-icons": "^10.0.0"
+    "react-native-vector-icons": "^10.0.0",
+    "react-native-video": "^5.2.1"
   },
   "private": true
 }
