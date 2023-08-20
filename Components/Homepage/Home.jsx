@@ -3,6 +3,9 @@ import {View,SafeAreaView,Text, Button, StyleSheet,TouchableOpacity, Image, Flat
 import {Ionicons } from '@expo/vector-icons';
 import { SliderBox } from "react-native-image-slider-box";
 import { Video } from 'expo-av';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+;
 // import [ Bkash_Options ] from "../Bkash.js"
 const Home =() => {
 //    const [option,setOption]=useState([]);
@@ -430,7 +433,7 @@ const images=[
 </View>   
 
 {/* BottomNavigation */}
-<View style={{backgroundColor:"#fefefe",height:90, 
+{/* <View style={{backgroundColor:"#fefefe",height:90, 
         marginTop:30,flexDirection:"row",paddingHorizontal:8,justifyContent:"space-between",alignItems:"center", shadowColor: 'pink',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.2,
@@ -454,7 +457,12 @@ const images=[
         <Text style={{marginTop:6}}>মেসেজ</Text>
         </View>
 
-</View>
+</View> */}
+
+
+{/* Bottom Navigation */}
+
+
 
         </ScrollView>
     );
