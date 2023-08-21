@@ -43,7 +43,7 @@ export default function App() {
     
     >
       <Tab.Screen name='Home' component={Home} />
-      <Tab.Screen name='Scanner' component={Scanner} options={{tabBarButton:props=><Custombutton {...props}/>}} />
+      <Tab.Screen name='Scanner' component={Scanner} />
       <Tab.Screen name='Message' component={Message} />
     </Tab.Navigator>
   </NavigationContainer>
